@@ -1,0 +1,12 @@
+namespaceOverride: analytics
+master:
+  daemonMemoryLimit: 1024m
+  configOptions: "-Dspark.ui.reverseProxy=true -Dspark.ui.reverseProxyUrl=https://spark.local"
+worker:
+  replicaCount: 2
+  memoryLimit: 2g
+  coreLimit: 2
+  configOptions: "-Dspark.ui.reverseProxy=true -Dspark.ui.reverseProxyUrl=https://spark.local"
+ingress:
+  enabled: true
+  hostname: spark.local

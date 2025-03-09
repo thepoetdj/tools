@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://github.com/k3d-io/k3d/blob/main/pkg/config/v1alpha5/schema.json
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: data-engineering
+servers: 1
+agents: 2
+image: rancher/k3s:v1.32.2-k3s1
+ports:
+  - port: 443:443
+    nodeFilters:
+      - loadbalancer
