@@ -25,6 +25,7 @@ We'll create and use separate namespaces for individual components of `data-engi
 
 ```bash
 kubectl create namespace analytics
+kubectl create namespace monitoring
 ```
 
 ### Helm 3 (Ubuntu/Debian)
@@ -52,4 +53,11 @@ helm repo update
 
 ```bash
 helm install spark bitnami/spark -f helm/spark.yaml
+```
+
+### Prometheus
+
+```bash
+kubectl apply -f k8s/prometheus.yaml
+helm install --namespace monitoring prometheus prometheus-community/prometheus -f helm/prometheus.yaml
 ```

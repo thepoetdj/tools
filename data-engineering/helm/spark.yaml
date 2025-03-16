@@ -10,3 +10,5 @@ worker:
 ingress:
   enabled: true
   hostname: spark.local
+metrics:
+  enabled: true

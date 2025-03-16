@@ -10,3 +10,10 @@ ports:
   - port: 443:443
     nodeFilters:
       - loadbalancer
+volumes:
+  - volume: /opt/k3d-data/data-engineering/server:/data
+    nodeFilters:
+      - server:*
+  - volume: /opt/k3d-data/data-engineering/agent:/data
+    nodeFilters:
+      - agent:*

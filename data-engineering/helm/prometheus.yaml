@@ -1,0 +1,26 @@
+server:
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.local
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  persistentVolume:
+    enabled: true
+    existingClaim: prometheus-data-pvc
+    mountPath: /data/prometheus
+  securityContext:
+    runAsUser: 0
+    runAsNonRoot: false
+    runAsGroup: 0
+    fsGroup: 0
+alertmanager:
+  enabled: false
+prometheus-node-exporter:
+  hostRootFsMount:
+    enabled: false
