@@ -51,5 +51,5 @@ helm repo update
 ### Spark
 
 ```bash
-helm install spark bitnami/spark -f helm/spark/values.yml
+helm install spark bitnami/spark -f helm/spark.yaml
 ```
