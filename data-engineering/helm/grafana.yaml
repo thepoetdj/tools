@@ -1,0 +1,17 @@
+namespaceOverride: visualizer
+ingress:
+  enabled: true
+  hosts:
+    - grafana.local
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+persistence:
+  enabled: true
+  existingClaim: grafana-data-pvc
+admin:
+  existingSecret: grafana-secret

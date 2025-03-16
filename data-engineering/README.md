@@ -26,6 +26,7 @@ We'll create and use separate namespaces for individual components of `data-engi
 ```bash
 kubectl create namespace analytics
 kubectl create namespace monitoring
+kubectl create namespace visualizer
 ```
 
 ### Helm 3 (Ubuntu/Debian)
@@ -42,6 +43,8 @@ sudo apt-get install helm
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
@@ -60,4 +63,11 @@ helm install spark bitnami/spark -f helm/spark.yaml
 ```bash
 kubectl apply -f k8s/prometheus.yaml
 helm install --namespace monitoring prometheus prometheus-community/prometheus -f helm/prometheus.yaml
+```
+
+### Grafana
+
+```bash
+kubectl apply -f k8s/grafana.yaml
+helm install grafana grafana/grafana -f helm/grafana.yaml
 ```
